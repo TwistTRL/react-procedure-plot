@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/react-procedures-plot/static/css/main.9d313dd0.chunk.css",
+    "main.js": "/react-procedures-plot/static/js/main.c2570205.chunk.js",
+    "main.js.map": "/react-procedures-plot/static/js/main.c2570205.chunk.js.map",
+    "runtime~main.js": "/react-procedures-plot/static/js/runtime~main.5e1af6a8.js",
+    "runtime~main.js.map": "/react-procedures-plot/static/js/runtime~main.5e1af6a8.js.map",
+    "static/css/2.59ec12d7.chunk.css": "/react-procedures-plot/static/css/2.59ec12d7.chunk.css",
+    "static/js/2.54f5b63c.chunk.js": "/react-procedures-plot/static/js/2.54f5b63c.chunk.js",
+    "static/js/2.54f5b63c.chunk.js.map": "/react-procedures-plot/static/js/2.54f5b63c.chunk.js.map",
+    "index.html": "/react-procedures-plot/index.html",
+    "precache-manifest.c06ff3a62a51fe773dbd744eb231e15d.js": "/react-procedures-plot/precache-manifest.c06ff3a62a51fe773dbd744eb231e15d.js",
+    "service-worker.js": "/react-procedures-plot/service-worker.js",
+    "static/css/2.59ec12d7.chunk.css.map": "/react-procedures-plot/static/css/2.59ec12d7.chunk.css.map",
+    "static/css/main.9d313dd0.chunk.css.map": "/react-procedures-plot/static/css/main.9d313dd0.chunk.css.map",
+    "static/media/leftArrow.svg": "/react-procedures-plot/static/media/leftArrow.69904e42.svg",
+    "static/media/leftFastArrow.svg": "/react-procedures-plot/static/media/leftFastArrow.fd50db86.svg",
+    "static/media/rightArrow.svg": "/react-procedures-plot/static/media/rightArrow.b520d060.svg",
+    "static/media/rightFastArrow.svg": "/react-procedures-plot/static/media/rightFastArrow.6a212cce.svg"
+  }
+}
