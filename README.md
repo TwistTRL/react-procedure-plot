@@ -8,6 +8,7 @@ export {ProcedurePlotTimeDiff, ProcedurePlotHoverSelector, ProcedurePlotClickSel
 ```
 
 # Demo
+https://twisttrl.github.io/react-procedure-plot
 
 # Examples
 ```
