@@ -1,5 +1,5 @@
 {
-  "name": "react-procedures-plot",
+  "name": "react-procedure-plot",
   "version": "0.1.0",
   "description": "...",
   "main": "dist/index.js",
@@ -60,14 +60,14 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://twisttrl.github.io/react-procedures-plot",
+  "homepage": "https://twisttrl.github.io/react-procedure-plot",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/twisttrl/react-procedures-plot"
+    "url": "git+https://github.com/twisttrl/react-procedure-plot"
   },
   "author": "Lingyu Zhou",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/twisttrl/react-procedures-plot/issues"
+    "url": "https://github.com/twisttrl/react-procedure-plot/issues"
   }
 }
