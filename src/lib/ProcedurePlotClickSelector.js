@@ -1,0 +1,94 @@
+import { PureComponent } from "react";
+import PropTypes from "prop-types";
+import {toDomXCoord_Linear} from "plot-utils";
+// Import constants
+import ProcedureObject, {compareProcedureObjects} from "./ProcedureObject";
+
+class ProcedurePlotClickSelector extends PureComponent {
+  constructor(props){
+    super(props);
+    this.lastEvent = null;
+    this.pickingCanvas = document.createElement("canvas");
+    this.pickingCanvas.width = 1;
+    this.pickingCanvas.height = 1;
+  }
+  
+  render() {
+    return null;
+  }
+  
+  componentDidMount(){
+    this.select();
+  }
+  
+  componentDidUpdate(){
+    this.select();
+  }
+  
+  select() {
+    let { data,
+          selection,
+          minX,maxX,width,height,
+          clickPosition,
+          selectHandler} = this.props;
+    if (clickPosition===this.lastEvent) {
+      return;
+    }
+    this.lastEvent = clickPosition;
+    if (!clickPosition) {
+      selectHandler(null);
+      return;
+    }
+    this.select_memo = this.select_memo || {};
+    let memo = this.select_memo;
+    if (memo.data !== data ) {
+      memo.data = data;
+      memo.ProcedureObjectCollection = data.map( (obj)=>new ProcedureObject(obj) )
+                                            .sort(compareProcedureObjects);
+    }
+    // Clear plots
+    let {pickingCanvas} = this;
+    let ctx = pickingCanvas.getContext("2d");
+    ctx.clearRect(0,0,1,1);
+    ctx.translate(-clickPosition.domX,-clickPosition.domY);
+    // Draw and pick
+    let curSelection;
+    for (let obj of memo.ProcedureObjectCollection) {
+      if (obj.start > maxX || obj.end < minX) {
+        continue;
+      }
+      // Draw
+      let startDomX = toDomXCoord_Linear(width,minX,maxX,obj.start);
+      let endDomX = toDomXCoord_Linear(width,minX,maxX,obj.end);
+      if (obj.id === selection) {
+        obj.drawSelectedHitbox(ctx,width,height,startDomX,endDomX);
+      }
+      else {
+        obj.drawHitbox(ctx,width,height,startDomX,endDomX);
+      }
+      // Pick
+      let imgData = ctx.getImageData(0,0,1,1);
+      if (imgData.data[3]!==0) {
+        curSelection = obj.id;
+        if (curSelection === selection) {
+          curSelection = null;
+        }
+        break;
+      }
+    }
+    selectHandler(curSelection);
+    ctx.translate(clickPosition.domX,clickPosition.domY);
+  }
+}
+
+ProcedurePlotClickSelector.propTypes = {
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  minX: PropTypes.number.isRequired,
+  maxX: PropTypes.number.isRequired,
+  data: PropTypes.array.isRequired,
+  selection: PropTypes.number,
+  selectHandler: PropTypes.func.isRequired,
+};
+
+export default ProcedurePlotClickSelector;
